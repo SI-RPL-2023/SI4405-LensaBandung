@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/homeee', function () {
+    return view('draft_home');
+});
+
+Route::get('/pengaduan', function () {
+    return view('pengaduan');
+});
+
 Route::get('/home', function () {
     return view('home');
 });
