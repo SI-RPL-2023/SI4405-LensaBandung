@@ -26,7 +26,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.home');
+        $pengaduan = Pengaduan::all();
+        $pengaduanCount = $pengaduan->count();
+        $diproses = Pengaduan::where('status', 'diproses')->get();
+        $accepted = Pengaduan::where('status', 'Accepted')->get();
+        $acceptedCount = $accepted->count();
+        $denied = Pengaduan::where('status', 'Denied')->get();
+        $deniedCount = $denied->count();
+        $diprosesCount = $diproses->count() + $acceptedCount + $deniedCount;
+        return view('user.home', compact('pengaduanCount', 'diprosesCount', 'acceptedCount', 'deniedCount'));
     }
 
     public function indexPengaduan()
@@ -71,19 +79,27 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
-
-    public function storeKomentar(Request $request, $id)
+    public function profile()
     {
-        $user= Auth::user();
-        Komentar::create([
-            'id_pengaduan' => $id,
-            'nama_komentator' => $user->name,
-            'komentar' => $request->komentar,
-        ]);
-
-        return redirect()->route('detailPengaduan', $id);
+        return view('user.editprofile');
     }
 
+    public function updateProfile(Request $request)
+    {
+        $user = Auth::user();
+        $user->update([
+            'name' => $request->nama,
+            'email' => $request->email,
+        ]);
 
+        return redirect()->route('home');
+    }
+
+    public function kontak()
+    {
+        return view('user.kontak_penting');
+    }
+
+}
 
 }

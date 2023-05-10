@@ -23,6 +23,10 @@ Route::get('/pengaduan', [App\Http\Controllers\HomeController::class, 'indexPeng
 Route::get('/riwayat-pengaduan', [App\Http\Controllers\Controller::class, 'indexRiwayat'])->name('riwayatPengaduan');
 Route::post('/pengaduan', [App\Http\Controllers\HomeController::class, 'storePengaduan'])->name('storePengaduan');
 Route::post('/detail-pengaduan/{id}', [App\Http\Controllers\HomeController::class, 'storeKomentar'])->name('storeKomentar');
+Route::get('/profil-kota', [App\Http\Controllers\Controller::class, 'profilKota'])->name('profilKota');
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profileku');
+Route::post('/profile', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfileku');
+Route::get('/kontak-penting', [App\Http\Controllers\Controller::class, 'kontak'])->name('kontak');
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
     Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('homeAdmin');
