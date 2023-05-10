@@ -38,4 +38,10 @@ class AdminController extends Controller
 
         return redirect()->back()->with('info', 'Pengaduan berhasil direject');
     }
+
+    public function profile()
+    {
+        $data = walikota::findorfail(1);
+        return view('admin.users-profile', compact('data'));
+    }
 }
