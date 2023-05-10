@@ -38,4 +38,11 @@ class AdminController extends Controller
 
         return redirect()->back()->with('info', 'Pengaduan berhasil direject');
     }
+
+    public function kritik()
+    {
+        $kritik = Kritik::all();
+        return view('admin.kritik', compact('kritik'));
+    }
+    
 }

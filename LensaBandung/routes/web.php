@@ -33,4 +33,5 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
     Route::get('/detail-pengaduan', [App\Http\Controllers\AdminController::class, 'detail'])->name('detailAdmin');
     Route::post('/accept-pengaduan/{id}', [App\Http\Controllers\AdminController::class, 'accept'])->name('accept');
     Route::post('/denied-pengaduan/{id}', [App\Http\Controllers\AdminController::class, 'denied'])->name('denied');
+    Route::get('/kritik-dan-saran', [App\Http\Controllers\AdminController::class, 'kritik'])->name('kritikSaran');
 });

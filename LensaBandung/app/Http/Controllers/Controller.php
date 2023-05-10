@@ -30,4 +30,16 @@ class Controller extends BaseController
         $komentar = Komentar::where('id_pengaduan', $id)->get();
         return view('user.detail_pengaduan', compact('data', 'komentar'));
     }
+
+    public function storeKritik(Request $request)
+    {
+
+        $kritik = new Kritik();
+        $kritik->nama_pengguna = $request->name;
+        $kritik->email = $request->email;
+        $kritik->kritikatausaran = $request->message;
+        $kritik->save();
+
+        return redirect()->back()->with('success', 'Kritik dan Saran berhasil dikirim');
+    }
 }
