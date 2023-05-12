@@ -79,6 +79,19 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
+
+    public function storeKomentar(Request $request, $id)
+    {
+        $user= Auth::user();
+        Komentar::create([
+            'id_pengaduan' => $id,
+            'nama_komentator' => $user->name,
+            'komentar' => $request->komentar,
+        ]);
+
+        return redirect()->route('detailPengaduan', $id);
+    }
+
     public function profile()
     {
         return view('user.editprofile');
@@ -99,7 +112,5 @@ class HomeController extends Controller
     {
         return view('user.kontak_penting');
     }
-
-}
 
 }

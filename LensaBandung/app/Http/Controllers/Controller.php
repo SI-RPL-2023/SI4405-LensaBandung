@@ -8,6 +8,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Pengaduan;
 use App\Models\Komentar;
+use App\Models\Kritik;
+use Illuminate\Http\Request;
 
 class Controller extends BaseController
 {
@@ -15,12 +17,20 @@ class Controller extends BaseController
 
     public function index()
     {
-        return view('welcome');
+        $pengaduan = Pengaduan::all();
+        $pengaduanCount = $pengaduan->count();
+        $diproses = Pengaduan::where('status', 'diproses')->get();
+        $accepted = Pengaduan::where('status', 'Accepted')->get();
+        $acceptedCount = $accepted->count();
+        $denied = Pengaduan::where('status', 'Denied')->get();
+        $deniedCount = $denied->count();
+        $diprosesCount = $diproses->count() + $acceptedCount + $deniedCount;
+        return view('welcome', compact('pengaduanCount', 'diprosesCount', 'acceptedCount', 'deniedCount'));
     }
 
     public function indexRiwayat()
     {
-        $data = Pengaduan::all();
+        $data = Pengaduan::all()->where('status', '==', "Accepted");
         return view('user.riwayat_pengaduan', compact('data'));
     }
 
@@ -29,6 +39,11 @@ class Controller extends BaseController
         $data = Pengaduan::findorfail($id);
         $komentar = Komentar::where('id_pengaduan', $id)->get();
         return view('user.detail_pengaduan', compact('data', 'komentar'));
+    }
+
+    public function profilKota()
+    {
+        return view('user.profil_kota');
     }
 
     public function storeKritik(Request $request)
@@ -42,4 +57,10 @@ class Controller extends BaseController
 
         return redirect()->back()->with('success', 'Kritik dan Saran berhasil dikirim');
     }
+
+    public function kontak()
+    {
+        return view('user.kontak_penting');
+    }
+
 }

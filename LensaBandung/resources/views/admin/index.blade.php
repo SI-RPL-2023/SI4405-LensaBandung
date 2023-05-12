@@ -256,8 +256,15 @@
         
       </li><!-- End Components Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="detailpengaduan.html">
-          <i class="bi bi-menu-button-wide"></i><span>History</span>
+        <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('profile')}}">
+          <i class="bi bi-menu-button-wide"></i><span>Profile</span>
+        </a>
+        
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('kritikSaran')}}">
+          <i class="bi bi-menu-button-wide"></i><span>Kritik dan Saran</span>
         </a>
         
       </li>

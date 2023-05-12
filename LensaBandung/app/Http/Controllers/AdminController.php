@@ -4,12 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pengaduan;
+use App\Models\Kritik;
+use App\Models\walikota;
+
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $pengaduan = Pengaduan::all();
+        $pengaduanCount = $pengaduan->count();
+        $accepted = Pengaduan::where('status', 'Accepted')->get();
+        $acceptedCount = $accepted->count();
+        $denied = Pengaduan::where('status', 'Denied')->get();
+        $deniedCount = $denied->count();
+        return view('admin.index', compact('pengaduanCount', 'acceptedCount', 'deniedCount'));
     }
 
     public function detail()
@@ -39,18 +48,65 @@ class AdminController extends Controller
         return redirect()->back()->with('info', 'Pengaduan berhasil direject');
     }
 
-<<<<<<< HEAD
+    public function proses($id)
+    {
+        
+        $pengaduan = Pengaduan::findorfail($id);
+        $pengaduan->update([
+            'status' => "diproses",
+        ]);
+
+        return redirect()->back();
+    }
+
+
+    public function delete($id)
+    {
+        
+        $pengaduan = Pengaduan::findorfail($id);
+        $pengaduan->delete();
+
+        return redirect()->back()->with('info', 'Pengaduan berhasil dihapus');
+    }
+
     public function kritik()
     {
         $kritik = Kritik::all();
         return view('admin.kritik', compact('kritik'));
     }
-    
-=======
+
     public function profile()
     {
         $data = walikota::findorfail(1);
         return view('admin.users-profile', compact('data'));
     }
->>>>>>> 6e8c90a13ff1f3699bf839226dcbc3f91ff793b3
+
+    public function updateProfile(Request $request)
+    {
+        $walikota = walikota::findorfail(1);
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 20; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+
+        $imagePath = $request->foto->extension();
+
+        $file = $request->file('foto')->move(public_path('foto_pengaduan'), $request->file('foto')->getClientOriginalName().$randomString.'.'.$imagePath);
+
+        $final = $request->file('foto')->getClientOriginalName().$randomString.'.'.$imagePath;
+        $walikota->update([
+            'nama_lengkap' => $request->nama_lengkap,
+            'jabatan' => $request->jabatan,
+            'kebangsaan' => $request->kebangsaan,
+            'lahir' => $request->lahir,
+            'awal_menjabat' => $request->awal_menjabat,
+            'akhir_menjabat' => $request->akhir_menjabat,
+            'tentang' => $request->tentang,
+            'foto' => $final,
+        ]);
+
+        return redirect()->back()->with('info', 'Profil berhasil diupdate');
+    }
 }

@@ -250,8 +250,15 @@
         
       </li><!-- End Components Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="detailpengaduan.html">
-          <i class="bi bi-menu-button-wide"></i><span>History</span>
+        <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('profile')}}">
+          <i class="bi bi-menu-button-wide"></i><span>Profile</span>
+        </a>
+        
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('kritikSaran')}}">
+          <i class="bi bi-menu-button-wide"></i><span>Kritik dan Saran</span>
         </a>
         
       </li>
@@ -259,7 +266,8 @@
 
   </aside><!-- End Sidebar-->
 
-
+  <br><br><br>
+  
   <div class="card-body">
     <div class="table-responsive">
 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="dataTable_length"><label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm" fdprocessedid="0sqrzl"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="dataTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table dataTable no-footer" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
@@ -313,6 +321,41 @@
     </td>
     <td>
       <a href="{{url('detail-pengaduan', $item['id'])}}" data-toggle="tooltip"><button type="button" class="btn btn-info">Detail</button></a>
+      @if($item->status == "Belum di accept admin")
+      <a class="btn btn-primary"  href="{{url('admin/proses', $item['id'])}} "
+        onclick="event.preventDefault();
+                      document.getElementById('proses').submit();">
+         {{ __('proses') }}
+        </a>
+        <form id="proses" action="{{url('admin/proses', $item['id'])}}" method="POST" class="d-none">
+          @csrf
+        </form>
+      @endif
+      <a href="" class="delete" title="Delete" data-toggle="tooltip" onclick="event.preventDefault();
+      document.getElementById('delete-form').submit();"><button type="button" class="btn btn-danger">Delete</button></a>
+      <br>
+      <br>
+      <form id="delete-form" action="" method="POST" class="d-none">
+        @csrf
+      </form>
+      @if($item->status == "diproses")
+      <a class="btn btn-primary" href="{{url('accept-pengaduan', $item['id'])}}"
+        onclick="event.preventDefault();
+                      document.getElementById('accept').submit();">
+         {{ __('Accept') }}
+      </a>
+      <a class="btn btn-danger" href="{{url('denied-pengaduan', $item['id'])}}"
+        onclick="event.preventDefault();
+                      document.getElementById('denied').submit();">
+         {{ __('Denied') }}
+      </a>
+    <form id="accept" action="{{url('admin/accept-pengaduan', $item['id'])}}" method="POST" class="d-none">
+      @csrf
+    </form>
+    <form id="denied" action="{{url('admin/denied-pengaduan', $item['id'])}}" method="POST" class="d-none">
+      @csrf
+    </form>
+      @endif
     </td>
 </tr>
 @endforeach
