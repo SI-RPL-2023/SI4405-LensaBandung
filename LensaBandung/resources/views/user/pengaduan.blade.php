@@ -54,10 +54,10 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto" href="{{route('home')}}">Home</a></li>
-          <li><a class="nav-link scrollto" href="#why-us">Profile Kota</a></li>
+          <li><a class="nav-link scrollto" href="{{url('/')}}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{route('profilKota')}}">Profile Kota</a></li>
           <li><a class="nav-link scrollto" href="{{route('riwayatPengaduan')}}">Pengaduan</a></li>   
-          <li><a class="nav-link scrollto" href="#doctors">Kontak Penting</a></li>
+          <li><a class="nav-link scrollto" href="{{route('kontak')}}">Kontak Penting</a></li>
    
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -79,6 +79,9 @@
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
+                </a>
+                <a class="dropdown-item" href="{{ route('profileku') }}">
+                  {{ __('Edit Profile') }}
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

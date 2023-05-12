@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\Controller::class, 'index']);
 Route::get('/detail-pengaduan/{id}', [App\Http\Controllers\Controller::class, 'indexDetailPengaduan'])->name('detailPengaduan');
+Route::post('/storeKritik', [App\Http\Controllers\Controller::class, 'storeKritik'])->name('storeKritik');
 
 Auth::routes();
 
@@ -33,5 +34,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
     Route::get('/detail-pengaduan', [App\Http\Controllers\AdminController::class, 'detail'])->name('detailAdmin');
     Route::post('/accept-pengaduan/{id}', [App\Http\Controllers\AdminController::class, 'accept'])->name('accept');
     Route::post('/denied-pengaduan/{id}', [App\Http\Controllers\AdminController::class, 'denied'])->name('denied');
+    Route::post('/proses/{id}', [App\Http\Controllers\AdminController::class, 'proses'])->name('proses');
+    Route::post('/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete'])->name('delete');
     Route::get('/kritik-dan-saran', [App\Http\Controllers\AdminController::class, 'kritik'])->name('kritikSaran');
+    Route::get('/profile', [App\Http\Controllers\AdminController::class, 'profile'])->name('profile');
+    Route::post('/profile', [App\Http\Controllers\AdminController::class, 'updateProfile'])->name('updateWalikota');
 });

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>Admin | LensaBandung</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -70,7 +70,7 @@
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
+            {{-- <i class="bi bi-bell"></i>
             <span class="badge bg-primary badge-number">4</span>
           </a><!-- End Notification Icon -->
 
@@ -202,7 +202,7 @@
 
             <li class="dropdown-footer">
               <a href="#">Show all messages</a>
-            </li>
+            </li> --}}
 
           </ul><!-- End Messages Dropdown Items -->
 
@@ -291,6 +291,15 @@
         <div class="col-lg-8">
           <div class="row">
 
+        @php
+            $year = date('Y');
+            $month = date('m');
+            $day = date('d');
+            $pengaduanCountYear = App\Models\Pengaduan::whereYear('created_at', $year)->count();
+            $pengaduanCountMonth = App\Models\Pengaduan::whereMonth('created_at', $month)->count();
+            $pengaduanCountDay = App\Models\Pengaduan::whereDay('created_at', $day)->count();
+        @endphp
+
             <!-- Sales Card -->
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">
@@ -302,21 +311,21 @@
                       <h6>Filter</h6>
                     </li>
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><a class="dropdown-item" href="#" id="t1">Today</a></li>
+                    <li><a class="dropdown-item" href="#" id="m1">This Month</a></li>
+                    <li><a class="dropdown-item" href="#" id="y1">This Year</a></li>
                   </ul>
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Jumlah Pengaduan <span>| Today</span></h5>
+                  <h5 class="card-title">Jumlah Pengaduan <span id="s1">| Today</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class=""></i>
                     </div>
                     <div class="ps-3">
-                      <h6>145</h6>
+                      <h6 id="h1">{{$pengaduanCount}}</h6>
                       <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">meningkat</span>
 
                     </div>
@@ -325,6 +334,30 @@
 
               </div>
             </div><!-- End Sales Card -->
+
+            <script>
+              t1.addEventListener('click', function(){
+                  s1.innerHTML = "| Today";
+                  h1.innerHTML = "{{$pengaduanCountDay}}";
+              });
+              m1.addEventListener('click', function(){
+                  s1.innerHTML = "| This Month";
+                  h1.innerHTML = "{{$pengaduanCountMonth}}";
+              });
+              y1.addEventListener('click', function(){
+                  s1.innerHTML = "| This Year";
+                  h1.innerHTML = "{{$pengaduanCountYear}}";
+              });
+          </script>
+
+            @php
+                $year = date('Y');
+                $month = date('m');
+                $day = date('d');
+                $acceptedCountYear = App\Models\Pengaduan::where('status', 'Accepted')->whereYear('created_at', $year)->count();
+                $acceptedCountMonth = App\Models\Pengaduan::where('status', 'Accepted')->whereMonth('created_at', $month)->count();
+                $acceptedCountDay = App\Models\Pengaduan::where('status', 'Accepted')->whereDay('created_at', $day)->count();
+            @endphp
 
             <!-- Revenue Card -->
             <div class="col-xxl-4 col-md-6">
@@ -337,21 +370,21 @@
                       <h6>Filter</h6>
                     </li>
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><a class="dropdown-item" href="#" id="t3">Today</a></li>
+                    <li><a class="dropdown-item" href="#" id="m3">This Month</a></li>
+                    <li><a class="dropdown-item" href="#" id="y3">This Year</a></li>
                   </ul>
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Terferifikasi <span>| This Month</span></h5>
+                  <h5 class="card-title">Terverifikasi <span id="s3">| This Month</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class=""></i>
                     </div>
                     <div class="ps-3">
-                      <h6>100</h6>
+                      <h6 id="h3">{{$acceptedCount}}</h6>
                       <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">naik</span>
 
                     </div>
@@ -360,6 +393,30 @@
 
               </div>
             </div><!-- End Revenue Card -->
+
+            <script>
+                t3.addEventListener('click', function(){
+                    s3.innerHTML = "| Today";
+                    h3.innerHTML = "{{$acceptedCountDay}}";
+                });
+                m3.addEventListener('click', function(){
+                    s3.innerHTML = "| This Month";
+                    h3.innerHTML = "{{$acceptedCountMonth}}";
+                });
+                y3.addEventListener('click', function(){
+                    s3.innerHTML = "| This Year";
+                    h3.innerHTML = "{{$acceptedCountYear}}";
+                });
+            </script>
+
+            @php
+              $year = date('Y');
+              $month = date('m');
+              $day = date('d');
+              $deniedCountYear = App\Models\Pengaduan::where('status', 'Denied')->whereYear('created_at', $year)->count();
+              $deniedCountMonth = App\Models\Pengaduan::where('status', 'Denied')->whereMonth('created_at', $month)->count();
+              $deniedCountDay = App\Models\Pengaduan::where('status', 'Denied')->whereDay('created_at', $day)->count();
+            @endphp
 
             <!-- Customers Card -->
             <div class="col-xxl-4 col-md-6">
@@ -373,21 +430,21 @@
                       <h6>Filter</h6>
                     </li>
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><a class="dropdown-item" href="#" id="t2">Today</a></li>
+                    <li><a class="dropdown-item" href="#" id="m2">This Month</a></li>
+                    <li><a class="dropdown-item" href="#" id="y2">This Year</a></li>
                   </ul>
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Ditolak <span>| This Year</span></h5>
+                  <h5 class="card-title">Ditolak <span id="s2">| This Year</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class=""></i>
                     </div>
                     <div class="ps-3">
-                      <h6>5</h6>
+                      <h6 id="h2">{{$deniedCount}}</h6>
                       <span class="text-danger small pt-1 fw-bold">3%</span> <span class="text-muted small pt-2 ps-1">turun</span>
 
                     </div>
@@ -397,6 +454,21 @@
               </div>
 
             </div><!-- End Customers Card -->
+
+            <script>
+                t2.addEventListener('click', function(){
+                    s2.innerHTML = "| Today";
+                    h2.innerHTML = "{{$deniedCountDay}}";
+                });
+                m2.addEventListener('click', function(){
+                    s2.innerHTML = "| This Month";
+                    h2.innerHTML = "{{$deniedCountMonth}}";
+                });
+                y2.addEventListener('click', function(){
+                    s2.innerHTML = "| This Year";
+                    h2.innerHTML = "{{$deniedCountYear}}";
+                });
+            </script>
 
             <!-- Reports -->
         </div><!-- End Left side columns -->

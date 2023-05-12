@@ -125,19 +125,19 @@
                             </tr>
                             <tr>
                                 <td>Polda Jabar</td>
-                                <td>123-456789</td>
+                                <td>022-7800166, 7804777</td>
                             </tr>
                             <tr>
                                 <td>Polrestabes Bandung</td>
-                                <td>987-654321</td>
+                                <td>022-4203500, 4244444</td>
                             </tr>
                             <tr>
                                 <td>Polres Kota Cimahi</td>
-                                <td>456-789123</td>
+                                <td>022-6652095, 6640444</td>
                             </tr>
                             <tr>
                                 <td>Polres Kabupaten Bandung</td>
-                                <td>789-123456</td>
+                                <td>022-85871965</td>
                             </tr>
                             <tr class="text-center">
                                 <th colspan="2" class="bg-dark text-white">Dinas Pemadam Kebakaran</th>

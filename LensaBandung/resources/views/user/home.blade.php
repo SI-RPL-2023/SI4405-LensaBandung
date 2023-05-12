@@ -54,7 +54,7 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto" href="{{route('home')}}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{url('/')}}">Home</a></li>
           <li><a class="nav-link scrollto" href="{{route('profilKota')}}">Profile Kota</a></li>
           <li><a class="nav-link scrollto" href="{{route('riwayatPengaduan')}}">Pengaduan</a></li>      
           <li><a class="nav-link scrollto" href="{{route('kontak')}}">Kontak penting</a></li>
@@ -78,6 +78,9 @@
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
+                </a>
+                <a class="dropdown-item" href="{{ route('profileku') }}">
+                    {{ __('Edit Profile') }}
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -160,7 +163,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="count-box">
               <i class=""></i>
-              <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="{{$pengaduanCount}}" data-purecounter-duration="1" class="purecounter"></span>
               <p>Pengaduan</p>
             </div>
           </div>
@@ -168,7 +171,7 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
             <div class="count-box">
               <i class=""></i>
-              <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="{{$diprosesCount}}" data-purecounter-duration="1" class="purecounter"></span>
               <p>Diproses</p>
             </div>
           </div>
@@ -176,7 +179,7 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
               <i class=""></i>
-              <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="{{$acceptedCount}}" data-purecounter-duration="1" class="purecounter"></span>
               <p>Diterima</p>
             </div>
           </div>
@@ -184,7 +187,7 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
               <i class=""></i>
-              <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="{{$deniedCount}}" data-purecounter-duration="1" class="purecounter"></span>
               <p>Ditolak</p>
             </div>
           </div>
@@ -237,7 +240,8 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="{{route('storeKritik')}}" method="post">
+              @csrf
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Nama" required>
@@ -247,14 +251,14 @@
                 </div>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Kritik/Saran" required></textarea>
+                <textarea id="message" class="form-control" name="message" rows="5" placeholder="Kritik/Saran" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="sent-message">Halo message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Kirim</button></div>
+              <center><button type="submit">Kirim</button>
             </form>
 
           </div>
