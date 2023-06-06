@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pengaduan;
 use App\Models\Komentar;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -100,9 +101,12 @@ class HomeController extends Controller
     public function updateProfile(Request $request)
     {
         $user = Auth::user();
+
         $user->update([
             'name' => $request->nama,
             'email' => $request->email,
+            'phone' => $request->no_hp,
+            'password' => bcrypt($request->password),
         ]);
 
         return redirect()->route('home');
