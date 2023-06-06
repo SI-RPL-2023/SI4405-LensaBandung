@@ -41,4 +41,5 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
     Route::post('/profile', [App\Http\Controllers\AdminController::class, 'updateProfile'])->name('updateWalikota');
     Route::get('/daftar-pengguna', [App\Http\Controllers\AdminController::class, 'pengguna'])->name('pengguna');
     Route::post('/profile-password', [App\Http\Controllers\AdminController::class, 'updateProfilePassword'])->name('updatePassword');
+    Route::get('/edit-profile-kota', [App\Http\Controllers\AdminController::class, 'editProfileKota'])->name('kota');
 });
