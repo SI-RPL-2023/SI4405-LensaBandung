@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Admin | LensaBandung</title>
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -44,8 +44,8 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        
+      <a href="{{route('homeAdmin')}}" class="logo d-flex align-items-center">
+        <img src="{{asset('assets/img/logo.png')}}" alt="" />
         <span class="d-none d-lg-block">LensaBandung</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -70,7 +70,7 @@
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            {{-- <i class="bi bi-bell"></i>
+            <i class="bi bi-bell"></i>
             <span class="badge bg-primary badge-number">4</span>
           </a><!-- End Notification Icon -->
 
@@ -202,7 +202,7 @@
 
             <li class="dropdown-footer">
               <a href="#">Show all messages</a>
-            </li> --}}
+            </li>
 
           </ul><!-- End Messages Dropdown Items -->
 
@@ -243,7 +243,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="{{route('homeAdmin')}}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -265,6 +265,18 @@
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('kritikSaran')}}">
           <i class="bi bi-menu-button-wide"></i><span>Kritik dan Saran</span>
+        </a>
+        
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('pengguna')}}">
+          <i class="bi bi-menu-button-wide"></i><span>Daftar Pengguna</span>
+        </a>
+        
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('kota')}}">
+          <i class="bi bi-menu-button-wide"></i><span>Edit Profile Kota</span>
         </a>
         
       </li>
@@ -326,8 +338,6 @@
                     </div>
                     <div class="ps-3">
                       <h6 id="h1">{{$pengaduanCount}}</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">meningkat</span>
-
                     </div>
                   </div>
                 </div>
@@ -385,8 +395,6 @@
                     </div>
                     <div class="ps-3">
                       <h6 id="h3">{{$acceptedCount}}</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">naik</span>
-
                     </div>
                   </div>
                 </div>
@@ -445,7 +453,7 @@
                     </div>
                     <div class="ps-3">
                       <h6 id="h2">{{$deniedCount}}</h6>
-                      <span class="text-danger small pt-1 fw-bold">3%</span> <span class="text-muted small pt-2 ps-1">turun</span>
+                      {{-- <span class="text-danger small pt-1 fw-bold">3%</span> <span class="text-muted small pt-2 ps-1">turun</span> --}}
 
                     </div>
                   </div>
