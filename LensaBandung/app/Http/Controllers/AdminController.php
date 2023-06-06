@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Pengaduan;
 use App\Models\Kritik;
 use App\Models\walikota;
+use App\Models\ProfileKota;
+use App\Models\User;
 
 
 class AdminController extends Controller
@@ -105,6 +107,37 @@ class AdminController extends Controller
             'akhir_menjabat' => $request->akhir_menjabat,
             'tentang' => $request->tentang,
             'foto' => $final,
+        ]);
+
+        return redirect()->back()->with('info', 'Profil berhasil diupdate');
+    }
+
+    public function updateProfilePassword(Request $request)
+    {
+        $user = User::findorfail(1);
+        $user->update([
+            'password' => bcrypt($request->password)
+        ]);
+
+        return redirect()->back()->with('info', 'Password berhasil diupdate');
+    }
+
+    public function pengguna()
+    {
+        $user = User::all()->where('role', 0);
+        return view('admin.daftar-pengguna', compact('user'));
+    }
+
+    public function editProfileKota()
+    {
+        return view('admin.editprofilekota');
+    }
+
+    public function updateProfileKota(Request $request)
+    {
+        $profile = ProfileKota::findorfail(1);
+        $profile->update([
+            'deskripsi' => $request->deskripsi
         ]);
 
         return redirect()->back()->with('info', 'Profil berhasil diupdate');
