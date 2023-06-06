@@ -97,7 +97,9 @@
     <div class="container">
       <h1>Selamat Datang</h1>
       <h1>di LensaBandung</h1>
+      <div class="judul">
       <h2>Platform pengaduan online berbasis website yang didedikasikan untuk membantu masyarakat Kota Bandung. Kami hadir untuk Anda sebagai solusi pengaduan yang mudah, cepat, dan aman</h2>
+      </div>
       <a href="{{route('pengaduan')}}" class="btn-get-started scrollto">Buat Pengaduan</a>
     </div>
   </section><!-- End Hero -->
