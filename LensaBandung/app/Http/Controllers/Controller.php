@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\Pengaduan;
 use App\Models\Komentar;
 use App\Models\Kritik;
+use App\Models\ProfileKota;
 use Illuminate\Http\Request;
 
 class Controller extends BaseController
@@ -43,7 +44,8 @@ class Controller extends BaseController
 
     public function profilKota()
     {
-        return view('user.profil_kota');
+        $data = ProfileKota::all()->where('id', 1);
+        return view('user.profil_kota', compact('data'));
     }
 
     public function storeKritik(Request $request)
