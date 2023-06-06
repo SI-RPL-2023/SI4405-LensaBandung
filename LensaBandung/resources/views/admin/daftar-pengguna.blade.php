@@ -263,7 +263,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-target="#components-nav" href="{{ route('pengguna') }}">
-                    <i class="bi bi-menu-button-wide"></i><span>Daftra Pengguna</span>
+                    <i class="bi bi-menu-button-wide"></i><span>Daftar Pengguna</span>
                 </a>
 
             </li>
