@@ -48,7 +48,7 @@
               Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan <br>
               Citarum, Kec. Bandung Wetan,<br>
               Kota Bandung, Jawa Barat 40115 <br><br>
-              <strong>Telepon:</strong> 082234231000<br>
+              <strong>Telepon:</strong> +62 82234231000<br>
               <strong>Email:</strong> lensabandung@gmail.com<br>
             </p>
           </div>
@@ -175,7 +175,7 @@
             Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan,  <br>
             Citarum, Kec. Bandung Wetan,<br>
             Kota Bandung, Jawa Barat 40115 <br><br>
-              <strong>Telepon:</strong> 082234231000<br>
+              <strong>Telepon:</strong> +62 82234231000<br>
               <strong>Email:</strong> lensabandung@gmail.com<br>
             </p>
           </div>
