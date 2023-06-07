@@ -148,7 +148,7 @@
             </div>
             <div class="col-md-6">
               <h3><strong>Kota Bandung</strong></h3>
-              <p style="text-align:justify;">Kota Bandung merupakan ibu kota provinsi Jawa Barat, terletak di antara 107 derajat bujur timur dan 6 derajat 55 menit lintang selatan. Secara geografis, kota ini memiliki lokasi yang strategis dan baik untuk komunikasi, ekonomi, serta keamanan. Kota Bandung memiliki ketinggian 768 meter di atas permukaan laut dengan titik tertinggi di bagian utara mencapai 1.050 meter dan titik terendah di bagian selatan sekitar 675 meter di atas permukaan laut. Kota Bandung memiliki keindahan panorama yang bervariasi, dengan bagian selatan yang cenderung datar dan bagian utara yang berbukit-bukit. Terdapat variasi jenis tanah di kota Bandung, di mana jenis andosol tersebar di bagian tengah dan barat, jenis alluvial kelabu di bagian selatan dan timur, dan lapisan tanah alluvial hasil letusan gunung Takuban Perahu. Iklim di kota Bandung dipengaruhi oleh iklim pegunungan yang lembab dan sejuk, dengan suhu rata-rata 23,5 derajat Celsius, curah hujan rata-rata 200,4 mm, dan jumlah hari hujan rata-rata 21,3 hari per bulan pada tahun 1998.</p>
+              <p style="text-align:justify;">{{$data->first()->deskripsi}}</p>
                 {{-- <br>
                 <h3><strong>Visi & Misi</strong></h3> --}}
             </div>
