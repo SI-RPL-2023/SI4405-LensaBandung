@@ -84,7 +84,7 @@
                                   <div class="mb-3 row">
                                       <label for="password2" class="col-sm-3 col-form-label"><b>Konfirmasi Kata Sandi</b></label>
                                       <div class="col-sm-9">
-                                      <input type="password" class="form-control" id="password2" name="password2">
+                                      <input type="password" class="form-control" id="password-confirm" name="password-confirm">
                                       </div>
                                   </div>
 

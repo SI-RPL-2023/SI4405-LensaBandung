@@ -44,7 +44,7 @@
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="{{route('homeAdmin')}}" class="logo d-flex align-items-center">
           <img src="{{asset('assets/img/logo.png')}}" alt="" />
           <span class="d-none d-lg-block">LensaBandung</span>
         </a>
@@ -308,6 +308,18 @@
         <li class="nav-item">
           <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('kritikSaran')}}">
             <i class="bi bi-menu-button-wide"></i><span>Kritik dan Saran</span>
+          </a>
+          
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('pengguna')}}">
+            <i class="bi bi-menu-button-wide"></i><span>Daftar Pengguna</span>
+          </a>
+          
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('kota')}}">
+            <i class="bi bi-menu-button-wide"></i><span>Edit Profile Kota</span>
           </a>
           
         </li>
@@ -600,32 +612,17 @@ Dr. Drs. H. Ema Sumarna, M.Si. merupakan seorang birokrat berkebangsaan Indonesi
 
                   <div class="tab-pane fade pt-3" id="profile-change-password">
                     <!-- Change Password Form -->
-                    {{-- <form>
+                    <form action="{{route('updatePassword')}}" method="post" role="form" enctype="multipart/form-data">
+                      @csrf
                       <div class="row mb-3">
                         <label
-                          for="currentPassword"
-                          class="col-md-4 col-lg-3 col-form-label"
-                          >Kata sandi sekarang</label
-                        >
-                        <div class="col-md-8 col-lg-9">
-                          <input
-                            name="password"
-                            type="password"
-                            class="form-control"
-                            id="currentPassword"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="row mb-3">
-                        <label
-                          for="newPassword"
+                          for="password"
                           class="col-md-4 col-lg-3 col-form-label"
                           >Kata sandi baru</label
                         >
                         <div class="col-md-8 col-lg-9">
                           <input
-                            name="newpassword"
+                            name="password"
                             type="password"
                             class="form-control"
                             id="newPassword"
@@ -654,7 +651,7 @@ Dr. Drs. H. Ema Sumarna, M.Si. merupakan seorang birokrat berkebangsaan Indonesi
                           Simpan
                         </button>
                       </div>
-                    </form> --}}
+                    </form>
                     <!-- End Change Password Form -->
                   </div>
                 </div>
@@ -670,7 +667,7 @@ Dr. Drs. H. Ema Sumarna, M.Si. merupakan seorang birokrat berkebangsaan Indonesi
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
       <div class="copyright">
-        &copy;  <strong><span>LensaBandung</span></strong
+        &copy; Copyright <strong><span>NiceAdmin</span></strong
         >. All Rights Reserved
       </div>
       <div class="credits">
@@ -678,7 +675,7 @@ Dr. Drs. H. Ema Sumarna, M.Si. merupakan seorang birokrat berkebangsaan Indonesi
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-        {{-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> --}}
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </footer>
     <!-- End Footer -->
