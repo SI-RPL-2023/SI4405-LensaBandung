@@ -404,21 +404,21 @@
                     <div style="text-align: center; margin-bottom: 120px;">
                       <i class="fas fa-cloud-sun fa-3x mb-3" style="color: #1e6cb5;"></i>
                       <h4 style="font-size: 22px; font-weight: bold; margin-bottom: 15px;">Bencana Alam</h4>
-                      <p style="font-size: 16px; line-height: 1.5;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor lorem quis massa lacinia consequat.</p>
+                      <p style="font-size: 16px; line-height: 1.5;">Kota Bandung merupakan salah satu kota di Indonesia yang rentan terhadap bencana alam, terutama pada musim hujan. Beberapa jenis bencana alam yang dapat terjadi di Bandung antara lain banjir, tanah longsor, dan erosi.</p>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div style="text-align: center; margin-bottom: 120px;">
                       <i class="fas fa-car fa-3x mb-3" style="color: #912bda;"></i>
                       <h4 style="font-size: 22px; font-weight: bold; margin-bottom: 15px;">Kemacetan</h4>
-                      <p style="font-size: 16px; line-height: 1.5;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor lorem quis massa lacinia consequat.</p>
+                      <p style="font-size: 16px; line-height: 1.5;">Kemacetan lalu lintas merupakan masalah yang cukup serius di Kota Bandung. Jumlah kendaraan yang terus bertambah setiap tahunnya, infrastruktur jalan yang tidak memadai, serta kurangnya penggunaan transportasi umum dan alternatif lainnya menjadi penyebab utama kemacetan di Kota Bandung.</p>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div style="text-align: center; margin-bottom: 120px;">
                       <i class="fas fa-people-robbery fa-3x mb-3" style="color: #d84218;"></i>
                       <h4 style="font-size: 22px; font-weight: bold; margin-bottom: 15px;">Pencurian</h4>
-                      <p style="font-size: 16px; line-height: 1.5;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor lorem quis massa lacinia consequat.</p>
+                      <p style="font-size: 16px; line-height: 1.5;">Seperti halnya di kota-kota besar lainnya di Indonesia, tindak kejahatan pencurian juga terjadi di Kota Bandung. Beberapa faktor yang menyebabkan terjadinya tindak kejahatan tersebut antara lain kepadatan penduduk dan aktivitas ekonomi yang tinggi, kurangnya pengamanan pada tempat-tempat umum seperti pusat perbelanjaan, dan kurangnya kesadaran masyarakat akan pentingnya keamanan.</p>
                     </div>
                   </div>
   
@@ -426,21 +426,22 @@
                       <div style="text-align: center; margin-bottom: 30px;">
                         <i class="fas fa-person-circle-exclamation fa-3x mb-3" style="color: #FABE58;"></i>
                         <h4 style="font-size: 22px; font-weight: bold; margin-bottom: 15px;">Tindakan Asusila</h4>
-                        <p style="font-size: 16px; line-height: 1.5;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor lorem quis massa lacinia consequat.</p>
+                        <p style="font-size: 16px; line-height: 1.5;">Tindakan asusila merupakan tindakan yang sangat merugikan korban dan masyarakat pada umumnya, dan terjadi tidak hanya di Kota Bandung tetapi di seluruh dunia. Kota Bandung sendiri tidak luput dari tindakan tersebut. Beberapa faktor yang menyebabkan terjadinya tindakan asusila di Kota Bandung antara lain adanya kesenjangan sosial-ekonomi, serta pengaruh dari media dan teknologi.</p>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div style="text-align: center; margin-bottom: 30px;">
                         <i class="fas fa-pills fa-3x mb-3" style="color: #005307;"></i>
                         <h4 style="font-size: 22px; font-weight: bold; margin-bottom: 15px;">Zat & Obat Terlarang</h4>
-                        <p style="font-size: 16px; line-height: 1.5;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor lorem quis massa lacinia consequat.</p>
+                        <p style="font-size: 16px; line-height: 1.5;">
+Seperti kota-kota besar lainnya di Indonesia, penggunaan zat dan obat terlarang juga terjadi di Kota Bandung. Beberapa faktor yang mempengaruhi terjadinya penggunaan zat dan obat terlarang di Kota Bandung antara lain adanya faktor sosial seperti tekanan ekonomi, masalah keluarga, pergaulan bebas, dan pengaruh teman sebaya.</p>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div style="text-align: center; margin-bottom: 30px;">
                         <i class="fas fa-dice fa-3x mb-3" style="color: #714b0a;"></i>
                         <h4 style="font-size: 22px; font-weight: bold; margin-bottom: 15px;">Perjudian</h4>
-                        <p style="font-size: 16px; line-height: 1.5;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor lorem quis massa lacinia consequat.</p>
+                        <p style="font-size: 16px; line-height: 1.5;">Perjudian merupakan kegiatan yang ilegal di Indonesia, termasuk di Kota Bandung. Namun, masih terdapat tempat-tempat yang menjadi sarang perjudian seperti tempat permainan kartu dan mesin slot ilegal yang terkadang sulit diawasi oleh pihak keamanan.</p>
                       </div>
                     </div>
                 </div>
